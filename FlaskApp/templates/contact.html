@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="icon" href="{{ url_for('static', filename='image.png') }}" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            width: 100%;
+            text-align: left;
+        }
+
+        .topnav a {
+            color: #f2f2f2;
+            text-decoration: none;
+            font-size: 17px;
+            padding: 14px 16px;
+            display: inline-block;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .contact-info {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            flex-basis: 100%;
+            text-align: center;
+        }
+
+        .contact-info div {
+            margin-bottom: 10px;
+        }
+
+        .contact-info span {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .contact-form-container {
+            flex-basis: 60%; /* Adjust the width for the contact form */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            margin-top: 20px;
+        }
+
+        .contact-form {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px; /* Adjust the max-width as needed */
+        }
+
+        .contact-form h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #04AA6D;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .contact-image {
+            flex-basis: 39.5%; /* Adjust the width for the contact image */
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            margin-top: 20px;
+        }
+
+        .contact-image img {
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            margin-top: 80px;
+            padding: 1px 0;
+            width: 100%;
+            margin-top: 5px; /* Added margin-top to create space */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topnav">
+        <a href="{{url_for('home')}}">Home</a>
+        <a href="{{url_for('Dashboard')}}">Dashboard</a>
+        <a class="active" href="#contact">Contact</a>
+        <a href="{{url_for('About')}}">About</a>
+    </div>
+    <div class="header">
+        <h1>Contact Us</h1>
+    </div>
+    <div class="container">
+        <div class="contact-info">
+            <div>
+                <span>&#x1F4CD;</span> Address: OULED SEBAA-BOUGAA-SETIF
+            </div>
+            <div>
+                <span>&#x1F4DE;</span> Phone: <a href="tel:+213698445774">+213 698 44 57 74</a>
+            </div>
+            <div>
+                <span>&#x1F4E7;</span> Email: <a href="mailto:abdenacersebaa@yahoo.com">abdenacersebaa@yahoo.com</a>
+            </div>
+            <div>
+                <span>&#x1F4BB;</span> Website: <a href="https://yoursite.com">yoursite.com</a>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <div class="contact-form">
+                <h2>Send us a Message</h2>
+                <form action="#" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="contact-image">
+            <img src="{{ url_for('static', filename='image.png') }}" alt="Contact Image">
+        </div>
+    </div>
+
+</body>
+</html>

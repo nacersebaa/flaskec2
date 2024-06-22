@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="icon" href="{{ url_for('static', filename='image.png') }}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                width: 100%;
+                max-width: 400px;
+                padding: 20px;
+                box-shadow: none;
+            }
+            .login-image {
+                order: -1;
+            }
+            .login-image img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login to <span>Predict RUL APP</span></h2>
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="username" style="font-weight:bold;">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" style="font-weight:bold;">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <a href="#">I forgot the password</a>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Sign in</button>
+                </div>
+            </form>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div class="login-image">
+            <img src="{{ url_for('static', filename='image.png') }}" alt="login image">
+        </div>
+    </div>
+</body>
+</html>

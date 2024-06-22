@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="icon" href="{{ url_for('static', filename='image.png') }}" type="image/x-icon">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f4f4;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+    
+    .topnav .logout {
+      float: right;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav .logout:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .hero {
+      background: url("{{ url_for('static', filename='images1.jpg') }}") no-repeat center center/cover;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      padding: 8em 1em;
+    }
+    
+    .hero-content h1 {
+      color: #fff;
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+  
+    .btn {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      color: #fff;
+      background-color: #1edb3d;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .btn:hover {
+      background-color: #5eb97c;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2em;
+    }
+    
+    section {
+      padding: 4em 0;
+    }
+    
+    .features, .benefits {
+      background-color: #f9f9f9;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 1em;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2em;
+    }
+    
+    .feature-item, .benefit-item {
+      text-align: center;
+      padding: 1em;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-item img, .benefit-item img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 1em;
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      margin-bottom: 1em;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 2em 1em;
+    }
+    
+    .footer-content {
+      margin-bottom: 1em;
+    }
+    
+    .social-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .social-links li {
+      margin: 0 0.5em;
+    }
+    
+    .social-links a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s;
+    }
+    
+    .social-links a:hover {
+      color: #007BFF;
+    }
+
+    /* Improved Dashboard Section */
+    .dashboard {
+      background-color: #e9ecef;
+      text-align: center;
+      padding: 4em 0;
+    }
+
+    .dashboard p {
+      font-size: 1.2em;
+      margin-bottom: 1.5em;
+    }
+
+    .dashboard .btn {
+      font-size: 1.2em;
+      padding: 1em 2em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="home">Home</a>
+  <a href="{{ url_for('contact') }}">Contact</a>
+  <a href="{{ url_for('About') }}">About</a>
+  <a class="logout" href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Transform Your Maintenance Strategy</h1>
+    <a href="#dashboard" class="btn">Get Started</a>
+  </div>
+</section>
+
+<section id="features" class="features">
+  <div class="container">
+    <h2 class="section-title">Key Features</h2>
+    <div class="grid">
+      <div class="feature-item">
+        <h3>Real-time Monitoring</h3>
+        <img src="{{ url_for('static', filename='monoto.jpg') }}" alt="Real-time Monitoring">
+        <p>Monitor equipment health in real-time with sensor data and advanced analytics.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Predictive Analytics</h3>
+        <img src="{{ url_for('static', filename='predic.jpg') }}" alt="Predictive Analytics">
+        <p>Utilize machine learning models to predict equipment failures before they occur.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Customizable Alerts</h3>
+        <img  src="{{ url_for('static', filename='alert.jpg') }}"  alt="Customizable Alerts">
+        <p>Set up alerts for maintenance needs based on custom thresholds and parameters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits" class="benefits">
+  <div class="container">
+    <h2 class="section-title">Benefits</h2>
+    <div class="grid">
+      <div class="benefit-item">
+        <h3>Reduce Downtime</h3>
+        <img src="{{ url_for('static', filename='Reduce Downtime.jpg') }}" alt="Reduce Downtime">
+        <p>Proactively address equipment issues to minimize downtime and optimize production.</p>
+      </div>
+      <div class="benefit-item">
+        <h3>Cost Savings</h3>
+        <img src="{{ url_for('static', filename='costreduction.jpg') }}" alt="Cost Savings">
+        <p>Lower maintenance costs by performing maintenance only when necessary.</p>
+      </div>
+      <div class="benefit-item">
+        <h3>Enhanced Efficiency</h3>
+        <img src="{{ url_for('static', filename='Efficiency.jpg') }}"  alt="Enhanced Efficiency">
+        <p>Maximize asset efficiency and extend equipment lifespan through predictive insights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dashboard" class="dashboard">
+  <div class="container">
+    <h2 class="section-title">Dashboard Overview</h2>
+    <p>Get a comprehensive view of your equipment health and maintenance status in one place.</p>
+    <a href="{{ url_for('Dashboard') }}" class="btn">Explore Dashboard</a>
+  </div>
+</section>
+
+<section id="media" class="media">
+  <div class="container">
+    <h2 class="section-title">Media</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/99_o20JsZpc" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/94664TLwLqM" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <h3>Contact Us</h3>
+      <p>If you have any questions or need support, please contact our team using this email or via the contact section in the navigation bar.</p>
+      <a href="yahoo.com">abdenacersebaa@yahoo.com</a>
+    </div>
+    <ul class="social-links">
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">Facebook</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
